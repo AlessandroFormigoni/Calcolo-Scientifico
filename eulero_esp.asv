@@ -1,0 +1,4 @@
+function [tn,un] = eulero_esp(odefun,tspan,y0,Nh)
+% Eulero_esp: metodo di eulero in avanti x approx di ODE
+ t0
+
