@@ -1,12 +1,20 @@
-function [tn,un] = eulero_imp(odefun,tspan,y0,Nh)
+function [tn,un] = eulero_imp(odefun,tspan,y0,Nh,varargin)
 
 t0 = tspan(1);
 T = tspan(2);
 tn = linspace(t0,T,Nh+1)';
 un = zeros(Nh+1,1);
 
-tol = 1e-8;
-kmax = 20;
+if nargin == 4
+    tol = 1e-8;
+    kmax = 20;
+elseif nargin==5
+    tol = varargin{1};
+    kmax = 20;
+else
+    tol = varargin{1};
+    kmax = varargin{2};
+end
 
 un(1) = y0;
 h = (T-t0)/Nh;
